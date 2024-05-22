@@ -5,7 +5,7 @@ import zhTW from "antd/locale/zh_TW";
 
 const localeData: LocaleData = {
   antLocale: zhTW,
-  logo: "圖小小",
+  logo: "圖片線上壓縮",
   initial: "初始化中",
   previewHelp: "拖曳分割線對比壓縮效果：左邊是原始圖，右邊是壓縮圖",
   uploadCard: {
