@@ -4,11 +4,11 @@
 
 <br/>
 
-<div><img src="https://picsmaller.com/demo1.png"></div>
+<div><img src="./docs/demo1.png"></div>
 <br/>
-<div><img src="https://picsmaller.com/demo2.png"></div>
+<div><img src="./docs/demo2.png"></div>
 <br/>
-<div><img src="https://picsmaller.com/demo3.png"></div>
+<div><img src="./docs/demo3.png"></div>
 
 <br/>
 
