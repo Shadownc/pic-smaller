@@ -3,10 +3,18 @@ import { createCompressTask } from "@/engines/transform";
 import { makeAutoObservable } from "mobx";
 
 export const DefaultCompressOption: CompressOption = {
-  maxPreviewSize: 256,
-  resizeMethod: "unChanged",
-  resizeWidth: undefined,
-  resizeHeight: undefined,
+  preview: {
+    maxSize: 256,
+  },
+  resize: {
+    method: undefined,
+    width: undefined,
+    height: undefined,
+  },
+  format: {
+    target: undefined,
+    transparentFill: "#FFFFFF",
+  },
   jpeg: {
     quality: 0.7,
   },
@@ -15,7 +23,7 @@ export const DefaultCompressOption: CompressOption = {
     dithering: 0,
   },
   gif: {
-    colors: 32,
+    colors: 128,
     dithering: false,
   },
   avif: {
@@ -38,8 +46,8 @@ export type ImageItem = {
   name: string;
   blob: Blob;
   src: string;
-  width?: number;
-  height?: number;
+  width: number;
+  height: number;
   preview?: ProcessOutput;
   compress?: ProcessOutput;
 };
@@ -49,6 +57,7 @@ export class HomeState {
   public option: CompressOption = DefaultCompressOption;
   public tempOption: CompressOption = DefaultCompressOption;
   public compareId: number | null = null;
+  public showOption: boolean = false;
 
   constructor() {
     makeAutoObservable(this);

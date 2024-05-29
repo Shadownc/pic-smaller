@@ -1,6 +1,6 @@
 # Pic Smaller
 
-**Pic Smaller** is a super easy-to-use online image compression tool. Its UI is intuitive and supports compression configuration. At the same time, because it is purely local compression without any server-side logic, it is completely safe.
+**Pic Smaller** is a super easy-to-use online image compression tool. It's intuitive, mobile friendly, and supports compression configuration. At the same time, because of purely local compression without any server-side logic, it is completely safe.
 
 <br/>
 
@@ -20,7 +20,7 @@ Pic smaller has been deployed to [`vercel`](https://vercel.com/), you can use it
 
 ## Develop
 
-This is a pure [vite](https://vitejs.dev/) + [React](https://react.dev/) project, You have to get familiar with them first. Pic smaller uses modern browser technologies such as `OffscreenCanvas`, `WebAssembly`, and `Web Worker`. You should also be familiar with them before developing.
+Pic smaller a [Vite](https://vitejs.dev/) + [React](https://react.dev/) project, you have to get familiar with them first. It uses modern browser technologies such as `OffscreenCanvas`, `WebAssembly`, and `Web Worker`. You should also be familiar with them before developing.
 
 ```bash
 # Clone the repo
@@ -35,6 +35,20 @@ npm install
 # Start to develop
 npm run dev
 ```
+
+## Deploy
+
+If you want to independently deploy this project on your own server, the following document based on Docker, and [Dockerfile](./Dockerfile) script has been tested. Within the project root directory, follow the instructions to start docker application
+
+```bash
+# Build docker image from Dockerfile
+docker build -t picsmaller .
+
+# Start a container
+docker run -p 3001:3001 -d picsmaller
+```
+
+Now you can access the project via http://127.0.0.1:3001. If you want your project to be accessible to everyone, you need to prepare a domain name pointing to your local machine, and then proxy it to port 3001 of this machine, through a reverse proxy server like nginx.
 
 ## Thanks
 

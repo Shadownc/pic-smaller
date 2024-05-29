@@ -1,5 +1,7 @@
 import { filesize } from "filesize";
 import { Mimes } from "./mimes";
+import type { ImageItem } from "./states/home";
+import type { CompressOption } from "./engines/ImageBase";
 
 /**
  * Normalize pathname
@@ -18,7 +20,9 @@ export function normalize(pathname: string, base = import.meta.env.BASE_URL) {
   return "error404";
 }
 
-// 通过自增生成全局唯一的数字ID
+/**
+ * Globaly uniqid in browser session lifecycle
+ */
 let __UniqIdIndex = 0;
 export function uniqId() {
   __UniqIdIndex += 1;
@@ -26,8 +30,8 @@ export function uniqId() {
 }
 
 /**
- * 格式化字节数据
- * @param num
+ * Beautify byte size
+ * @param num byte size
  * @returns
  */
 export function formatSize(num: number) {
@@ -36,7 +40,7 @@ export function formatSize(num: number) {
 }
 
 /**
- * 弹出一个下载框
+ * Create a download dialog from browser
  * @param name
  * @param blob
  */
@@ -49,9 +53,11 @@ export function createDownload(name: string, blob: Blob) {
 }
 
 /**
- * 判断names中是否已经存在name，如果存在，则创建一个新的name
- * @param names 用来检测的names
- * @param name 待判断的name
+ * If names Set already has name, add suffix '(1)' for the name
+ * which will newly pushed to names set
+ *
+ * @param names will checked names Set
+ * @param name will pushed to names
  */
 export function getUniqNameOnNames(names: Set<string>, name: string): string {
   const getName = (checkName: string): string => {
@@ -158,4 +164,42 @@ export async function getFilesFromHandle(
   }
 
   return [];
+}
+
+/**
+ * Get file suffix by lowercase
+ * @param fileName
+ */
+export function splitFileName(fileName: string) {
+  const index = fileName.lastIndexOf(".");
+  const name = fileName.substring(0, index);
+  const suffix = fileName.substring(index + 1).toLowerCase();
+  return { name, suffix };
+}
+
+/**
+ * Get final file name if there exists a type convert
+ * @param item
+ * @param option
+ * @returns
+ */
+export function getOutputFileName(item: ImageItem, option: CompressOption) {
+  if (item.blob.type === item.compress?.blob.type) {
+    return item.name;
+  }
+
+  const { name, suffix } = splitFileName(item.name);
+  let resultSuffix = suffix;
+  for (const key in Mimes) {
+    if (item.compress!.blob.type === Mimes[key]) {
+      resultSuffix = key;
+      break;
+    }
+  }
+
+  if (["jpg", "jpeg"].includes(resultSuffix)) {
+    resultSuffix = option.format.target?.toLowerCase() || resultSuffix;
+  }
+
+  return name + "." + resultSuffix;
 }

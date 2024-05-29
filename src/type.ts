@@ -35,7 +35,6 @@ export interface LocaleData {
   };
   optionPannel: {
     resizeLable: string;
-    formatLable: string;
     jpegLable: string;
     pngLable: string;
     gifLable: string;
@@ -44,9 +43,9 @@ export interface LocaleData {
     avifSpeed: string;
     help: string;
     failTip: string;
-    unChanged: string;
-    toWidth: string;
-    toHeight: string;
+    resizePlaceholder: string;
+    fitWidth: string;
+    fitHeight: string;
     widthPlaceholder: string;
     heightPlaceholder: string;
     qualityTitle: string;
@@ -55,6 +54,9 @@ export interface LocaleData {
     colorsDesc: string;
     pngDithering: string;
     gifDithering: string;
+    outputFormat: string;
+    outputFormatPlaceholder: string;
+    transparentFillDesc: string;
   };
   progress: {
     before: string;
