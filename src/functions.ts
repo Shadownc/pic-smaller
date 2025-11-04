@@ -200,3 +200,58 @@ export function getOutputFileName(item: ImageItem, option: CompressOption) {
 
   return name + "." + resultSuffix;
 }
+
+/**
+ * Get files from clipboard paste event
+ * @param event ClipboardEvent
+ * @returns Array of File objects
+ */
+export async function getFilesFromClipboard(event: ClipboardEvent): Promise<Array<File>> {
+  const files: Array<File> = [];
+  
+  if (!event.clipboardData) {
+    return files;
+  }
+
+  const items = event.clipboardData.items;
+  
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    
+    // Check if the item is an image
+    if (item.type.startsWith('image/')) {
+      const file = item.getAsFile();
+      if (file) {
+        // Check if the image type is supported
+        const types = Object.values(Mimes);
+        if (types.includes(file.type)) {
+          files.push(file);
+        }
+      }
+    }
+  }
+  
+  return files;
+}
+
+/**
+ * Check if clipboard contains image data
+ * @param event ClipboardEvent
+ * @returns boolean
+ */
+export function hasImageInClipboard(event: ClipboardEvent): boolean {
+  if (!event.clipboardData) {
+    return false;
+  }
+  
+  const items = event.clipboardData.items;
+  
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    if (item.type.startsWith('image/')) {
+      return true;
+    }
+  }
+  
+  return false;
+}

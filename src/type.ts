@@ -12,6 +12,7 @@ export interface LocaleData {
   uploadCard: {
     title: string;
     subTitle: string;
+    pasteHint: string;
   };
   listAction: {
     batchAppend: string;

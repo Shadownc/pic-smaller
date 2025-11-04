@@ -10,9 +10,9 @@ const localeData: LocaleData = {
   previewHelp:
     "分割線をドラッグして圧縮効果を比較します。左が元の画像、右が圧縮された画像です",
   uploadCard: {
-    title:
-      "ここでファイルを選択し、ファイルとフォルダーのドラッグをサポートします",
-    subTitle: "オープンソースのバッチ画像圧縮ツール、%s 形式をサポート",
+    title: "画像をドラッグまたは選択",
+    subTitle: "対応フォーマット：%s",
+    pasteHint: "💡 Ctrl+V で画像を貼り付け、またはドラッグ＆ドロップ可能",
   },
   listAction: {
     batchAppend: "バッチ追加",

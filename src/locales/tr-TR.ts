@@ -8,9 +8,9 @@ const localeData: LocaleData = {
   previewHelp:
     "Sıkıştırma etkisini karşılaştırmak için bölme çizgisini sürükleyin: soldaki orijinal görüntü, sağdaki sıkıştırılmış görüntü",
   uploadCard: {
-    title: "Dosyaları buradan seçin, dosya ve klasör sürüklemeyi destekler",
-    subTitle:
-      "Açık kaynaklı toplu resim sıkıştırma aracı, %s formatını destekler",
+    title: "Resimlerinizi buraya bırakın",
+    subTitle: "Desteklenen formatlar: %s",
+    pasteHint: "💡 Ctrl+V ile yapıştırın veya resimleri sürükleyin",
   },
   listAction: {
     batchAppend: "Toplu ekle",

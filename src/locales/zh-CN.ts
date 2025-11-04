@@ -7,8 +7,9 @@ const localeData: LocaleData = {
   initial: "初始化中",
   previewHelp: "拖动分割线对比压缩效果：左边是原始图，右边是压缩图",
   uploadCard: {
-    title: "选取文件到这里，支持拖拽文件和文件夹",
+    title: "选取图片到这里，支持拖拽图片和文件夹",
     subTitle: "开源的批量图片压缩工具，支持 %s 格式",
+    pasteHint: "💡 提示：您也可以复制图片后按 Ctrl+V (Cmd+V) 粘贴",
   },
   listAction: {
     batchAppend: "批量添加",

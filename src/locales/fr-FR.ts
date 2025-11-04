@@ -8,9 +8,9 @@ const localeData: LocaleData = {
   previewHelp:
     "Faites glisser la ligne de séparation pour comparer l'effet de compression : l'image de gauche est l'image originale, celle de droite est l'image compressée",
   uploadCard: {
-    title: "Selectionnez ou glissez-déposez vos fichiers et dossiers ici",
-    subTitle:
-      "Outil open source de compression d'images par lot, prend en charge les formats %s",
+    title: "Déposez vos images ici",
+    subTitle: "Formats supportés : %s",
+    pasteHint: "💡 Collez avec Ctrl+V ou glissez vos images ici",
   },
   listAction: {
     batchAppend: "Ajouter des fichiers",
